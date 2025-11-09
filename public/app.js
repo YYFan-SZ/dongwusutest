@@ -8,6 +8,7 @@ class AnimalTest {
     this.answers = []
     this.result = null
     this.init()
+    this.setupMobileOptimizations()
   }
 
   init() {
@@ -519,6 +520,66 @@ class AnimalTest {
 
   attachAnimalsEvents() {
     // 事件已通过 onclick 绑定
+  }
+
+  // 移动端优化设置
+  setupMobileOptimizations() {
+    // 防止双击缩放
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
+
+    // 防止页面缩放
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+
+    // 优化触摸反馈
+    document.addEventListener('touchstart', function(e) {
+      if (e.target.classList.contains('option') || 
+          e.target.classList.contains('start-btn') || 
+          e.target.classList.contains('btn')) {
+        e.target.style.transform = 'scale(0.98)';
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (e.target.classList.contains('option') || 
+          e.target.classList.contains('start-btn') || 
+          e.target.classList.contains('btn')) {
+        setTimeout(() => {
+          e.target.style.transform = '';
+        }, 100);
+      }
+    }, { passive: true });
+
+    // 优化滚动性能
+    if ('scrollBehavior' in document.documentElement.style) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+
+    // 监听屏幕方向变化
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+
+    // 优化输入框体验
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        document.body.style.zoom = '1';
+      });
+      input.addEventListener('blur', () => {
+        document.body.style.zoom = '';
+      });
+    });
   }
 }
 

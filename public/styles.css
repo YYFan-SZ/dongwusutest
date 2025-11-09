@@ -329,6 +329,62 @@ body {
   accent-color: var(--primary-color);
 }
 
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .option {
+    min-height: 48px; /* 确保触摸目标足够大 */
+    padding: 16px 18px;
+  }
+  
+  .option:active {
+    background: rgba(255, 193, 7, 0.1);
+    transform: scale(0.98);
+  }
+  
+  .start-btn,
+  .btn {
+    min-height: 48px;
+    padding: 14px 24px;
+  }
+  
+  .start-btn:active,
+  .btn:active {
+    transform: scale(0.96);
+  }
+  
+  .animal-card {
+    min-height: 120px;
+  }
+  
+  .animal-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* 防止移动端双击缩放 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 改善移动端滚动体验 */
+.container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 移动端字体大小调整 */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* 防止iPhone Safari自动缩放 */
+  }
+  
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* 防止iOS缩放输入框 */
+  }
+}
+
 .option.selected {
   border-color: var(--primary-color);
   background: rgba(255, 193, 7, 0.08);
@@ -558,85 +614,405 @@ body {
 }
 
 /* 响应式设计 */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  #app {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
   .container {
-    padding: 24px;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .home-page {
+    padding: 10px;
   }
 
   .home-page h1 {
-    font-size: 42px;
+    font-size: 36px;
+    margin-bottom: 12px;
+    line-height: 1.2;
   }
 
   .home-page h2 {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .logo-wrapper {
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
   }
 
   .logo-emoji {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .intro-text {
-    padding: 20px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 12px;
   }
 
   .intro-text p {
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .warning-box {
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    gap: 10px;
+  }
+
+  .warning-icon {
+    font-size: 18px;
+  }
+
+  .warning-content {
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .test-info {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 24px;
   }
 
   .info-item {
+    font-size: 13px;
+    padding: 10px 16px;
     justify-content: center;
+    border-radius: 16px;
   }
 
   .start-btn {
-    padding: 16px 40px;
-    font-size: 18px;
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
   }
 
-  .question-text {
-    font-size: 18px;
+  .btn-icon {
+    font-size: 20px;
   }
 
-  .option {
-    padding: 14px 16px;
-    font-size: 14px;
+  .home-page .footer {
+    margin-top: 30px;
+    font-size: 12px;
   }
 
-  .animal-name {
-    font-size: 24px;
+  .footer-note {
+    font-size: 11px;
   }
 
-  .animal-emoji {
-    font-size: 60px;
-  }
-
-  .animals-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 16px;
+  /* 测试页面移动端优化 */
+  .test-page {
+    min-height: calc(100vh - 40px);
+    padding: 10px 0;
   }
 
   .test-header {
     flex-direction: column;
-    gap: 12px;
-    padding-bottom: 12px;
+    gap: 10px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+
+  .test-header h3 {
+    font-size: 12px;
+    text-align: center;
   }
 
   .progress {
     margin: 0;
     width: 100%;
+    height: 6px;
+  }
+
+  .question-container {
+    padding: 10px 0;
+    min-height: calc(100vh - 200px);
+    justify-content: flex-start;
+  }
+
+  .question-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .options {
+    gap: 10px;
+  }
+
+  .option {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+    line-height: 1.4;
+  }
+
+  .option input[type="radio"] {
+    margin-right: 10px;
   }
 
   .test-footer {
     flex-direction: column-reverse;
-    gap: 12px;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 16px;
   }
 
   .btn {
     width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 18px;
+  }
+
+  /* 结果页面移动端优化 */
+  .result-page h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .result-animal {
+    margin-bottom: 24px;
+  }
+
+  .animal-emoji {
+    font-size: 48px;
+  }
+
+  .animal-name {
+    font-size: 20px;
+  }
+
+  .animal-description {
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+
+  .personality-traits {
+    margin-bottom: 24px;
+  }
+
+  .personality-traits h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .traits-list {
+    gap: 8px;
+  }
+
+  .trait {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .personality-details {
+    margin-bottom: 24px;
+  }
+
+  .personality-details h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .details-grid {
+    gap: 12px;
+  }
+
+  .detail-item {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .detail-item h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .detail-item p {
+    font-size: 12px;
+  }
+
+  .result-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .result-actions button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  /* 动物图鉴页面移动端优化 */
+  .animals-page {
+    padding: 10px;
+  }
+
+  .animals-page h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .animals-page .subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .animals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .animal-card {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  .animal-card .emoji {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  .animal-card .name {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .animal-card .desc {
+    font-size: 12px;
+  }
+
+  .back-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+
+  .back-header {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  /* 小屏幕手机优化 */
+  @media (max-width: 375px) {
+    .home-page h1 {
+      font-size: 32px;
+    }
+
+    .home-page h2 {
+      font-size: 16px;
+    }
+
+    .logo-emoji {
+      font-size: 20px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .start-btn {
+      font-size: 15px;
+      padding: 12px 28px;
+    }
+
+    .question-text {
+      font-size: 15px;
+    }
+
+    .option {
+      font-size: 13px;
+      padding: 10px 12px;
+    }
+  }
+
+  /* 横屏模式优化 */
+  @media (max-height: 500px) and (orientation: landscape) {
+    body {
+      padding: 5px;
+    }
+
+    .container {
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .home-page h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .home-page h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .logo-wrapper {
+      margin-bottom: 12px;
+    }
+
+    .intro-text {
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .warning-box {
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .start-btn {
+      padding: 10px 24px;
+      font-size: 14px;
+    }
+
+    .question-container {
+      min-height: calc(100vh - 150px);
+    }
+
+    .question-text {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .option {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+
+    .test-footer {
+      margin-top: 12px;
+      padding-top: 12px;
+    }
   }
 }
 
