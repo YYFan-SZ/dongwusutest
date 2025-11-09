@@ -73,8 +73,7 @@ class AnimalTest {
                 </div>
                 
                 <div class="footer">
-                    <p>动物塑测试 &copy; 2024</p>
-                    <p class="footer-note">探索内心，发现真实的自己</p>
+                    
                 </div>
             </div>
         `
