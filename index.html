@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>动物塑测试 - 发现你的动物塑形象</title>
+    <title>动物塑测试 - 深度心理性格分析与动物形象探索</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="免费在线动物塑测试与深度心理测试。通过60道专业题目，精准解析你的动物塑形象、性格特质与潜在优势。探索你内心的灵魂动物，获取个性化成长建议。">
+    <meta name="keywords" content="动物塑测试,心理测试,动物塑,性格测试,MBTI,动物人格,灵魂动物,在线测试,免费测试,性格测评,自我探索">
+    <meta name="author" content="动物塑测试">
+    <meta name="robots" content="index, follow">
+    <!-- 请将下面的 href 替换为您的实际网站域名 -->
+    <link rel="canonical" href="https://dongwusutest.online/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="动物塑测试 - 深度心理性格分析与动物形象探索">
+    <meta property="og:description" content="通过60道专业测试题，发现你的动物塑形象，了解你的性格特质和潜在优势。">
+    <meta property="og:image" content="public/placeholder.jpg">
+    <meta property="og:site_name" content="动物塑测试">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://your-domain.com/">
+    <meta name="twitter:title" content="动物塑测试 - 深度心理性格分析与动物形象探索">
+    <meta name="twitter:description" content="通过60道专业测试题，发现你的动物塑形象，了解你的性格特质和潜在优势。">
+    <meta name="twitter:image" content="public/placeholder.jpg">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2098956552432234" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/styles.css?v=2.0">
     <link rel="icon" type="image/svg+xml" href="public/icon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="public/icon-light-32x32.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" sizes="32x32" href="public/icon-dark-32x32.png" media="(prefers-color-scheme: dark)">
-    <meta name="description" content="通过60道专业测试题，发现你的动物塑形象，了解你的性格特质和潜在优势">
-    <meta name="keywords" content="动物塑,性格测试,心理测试,动物性格,个人成长">
 </head>
 <body>
+    <button id="lang-toggle" class="lang-toggle" onclick="app.toggleLanguage()" aria-label="Switch Language">
+        <span class="lang-text">English</span>
+    </button>
     <div id="app">
         <div class="container home-page">
             <div class="hero-section">
@@ -26,21 +52,35 @@
                 <h1>动物塑测试</h1>
                 <h2>发现你内心的动物本能</h2>
                 <div class="intro-text">
-                    <p>🧠 <strong>60道专业设计题目</strong> - 基于心理学和动物行为学</p>
-                    <p>🎯 <strong>12种动物原型</strong> - 从狼的领导力到猫的独立性</p>
-                    <p>🔍 <strong>深度性格分析</strong> - 了解你的优势、特质和潜在能力</p>
-                    <p>✨ <strong>个性化建议</strong> - 基于你的动物塑形象的成长指导</p>
+                    <div class="intro-item">
+                        <h3>🧠 60道专业设计题目</h3>
+                        <p> - 基于心理学和动物行为学</p>
+                    </div>
+                    <div class="intro-item">
+                        <h3>🎯 12种动物原型</h3>
+                        <p> - 从狼的领导力到猫的独立性</p>
+                    </div>
+                    <div class="intro-item">
+                        <h3>🔍 深度性格分析</h3>
+                        <p> - 了解你的优势、特质和潜在能力</p>
+                    </div>
+                    <div class="intro-item">
+                        <h3>✨ 个性化建议</h3>
+                        <p> - 基于你的动物塑形象的成长指导</p>
+                    </div>
                 </div>
             </div>
             
             <div class="warning-box">
                 <span class="warning-icon">⚠️</span>
                 <div class="warning-content">
-                    <strong>温馨提示：</strong>本测试仅供娱乐和自我探索参考，结果并非绝对标准。每个人的性格都是独特的，动物塑形象只是帮助你更好地了解自己的一个有趣视角。
+                    <h3>温馨提示：</h3>
+                    <p>本测试仅供娱乐和自我探索参考，结果并非绝对标准。每个人的性格都是独特的，动物塑形象只是帮助你更好地了解自己的一个有趣视角。</p>
                 </div>
             </div>
             
             <div class="start-section">
+                <h2 class="sr-only">开始测试</h2>
                 <div class="test-info">
                     <span class="info-item">⏱️ 预计用时：8-12分钟</span>
                     <span class="info-item">📊 题目数量：60道</span>
@@ -55,6 +95,7 @@
             
         </div>
     </div>
+    <script src="public/locales.js"></script>
     <script src="public/data.js"></script>
     <script src="public/app.js"></script>
 </body>
